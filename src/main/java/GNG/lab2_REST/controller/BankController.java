@@ -4,6 +4,7 @@ import GNG.lab2_REST.client.Client;
 import GNG.lab2_REST.service.AccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -46,8 +47,10 @@ public class BankController {
         return accountService.getBalance(request.getAccountID());
     }
 
-
-
+    @GetMapping("/check")
+    public ResponseEntity<String> check() {
+        return ResponseEntity.ok("Bank is up and running");
+    }
 
     /*
     SAME AS WITHDRAW METHOD ???
